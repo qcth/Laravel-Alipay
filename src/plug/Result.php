@@ -10,14 +10,19 @@ class AlipayResult{
 
     //配置项数组
     protected $config;
+    public function __construct($config=null){
+        $this->config=$config;
+    }
 
-    public function check($data,$config){
+    public function check($data=null){
+        if(empty($data)){
+            return '参数必传，参数是 $_GET或$_POST';
+        }
         //配置项不能为空
-        if(empty($config)){
+        if(empty($this->config)){
             return '支付宝配置数组不能为空';
         }
-        //配置项，赋值全局属性
-        $this->config=$config;
+
         return $this->result_check($data);
     }
 

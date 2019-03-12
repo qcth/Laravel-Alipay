@@ -24,41 +24,45 @@ class Exe{
     //构建参数，biz_content 订单信息转json
     public $apiParams;
 
+    public function __construct($config=null){
+        //配置项，赋值全局属性
+        $this->config=$config;
+    }
 
     //查询
-    public function query($order_info,$config){
+    public function query($order_info){
         //sdk赋值
         $this->build_params_method='alipay.trade.query';
         $this->sdk_response='alipay_trade_query_response';
 
-        return $this->common($order_info,$config);
+        return $this->common($order_info);
     }
     //退款
-    public function refund($order_info,$config){
+    public function refund($order_info){
         //sdk赋值
         $this->build_params_method='alipay.trade.refund';
         $this->sdk_response='alipay_trade_refund_response';
 
-        return $this->common($order_info,$config);
+        return $this->common($order_info);
     }
     //退款查询
-    public function refund_query($order_info,$config){
+    public function refund_query($order_info){
         //sdk赋值
         $this->build_params_method='alipay.trade.fastpay.refund.query';
         $this->sdk_response='alipay_trade_fastpay_refund_query_response';
 
-        return $this->common($order_info,$config);
+        return $this->common($order_info);
     }
     //关闭交易
-    public function close($order_info,$config){
+    public function close($order_info){
         //sdk赋值
         $this->build_params_method='alipay.trade.close';
         $this->sdk_response='alipay_trade_close_response';
 
-        return $this->common($order_info,$config);
+        return $this->common($order_info);
     }
     //公共方法
-    private function common($order_info,$config){
+    private function common($order_info){
         if(empty($order_info)){
             die('查询的订单，至少有一项');
         }
@@ -66,11 +70,9 @@ class Exe{
         $this->order_info=$order_info;
 
         //配置项不能为空
-        if(empty($config)){
+        if(empty($this->config)){
             return '支付宝配置数组不能为空';
         }
-        //配置项，赋值全局属性
-        $this->config=$config;
 
         //组装系统参数
         $sysParams=$this->build_params();

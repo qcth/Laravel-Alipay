@@ -8,26 +8,44 @@ namespace qcth\laravel_alipay;
 class Index{
     
     //插件对象
-    private $link;
+    private $link=[];
 
-    //实例化插件类 ,
-    //$plug_name 是准备要实例化的插件名字,
-    ///$construct 是 实例化的类的构造参数,可以不传
-    public function __construct($plug_name,$construct=null){
+    /**
+     * @param $plug_name 插件名,类名 Pay
+     * @param null $arguments, 第一个为配置数组，第二个可选项(true或false)，默认为true单例模式，如果不想要单例模式，可以传false
+     * @return 错误时，返出字符串（错误消息）正常返出 对象
+     */
+    public function __call($plug_name, $arguments=null){
 
-        $class_name='\qcth\laravel_alipay\plug\\'.ucfirst($plug_name);
-
-        if(!$this->link instanceof $class_name){
-            $this->link=new $class_name($construct);
+        //参数个数
+        switch (count($arguments)){
+            case 1:
+                $config=$arguments[0];
+                $shared=true;
+                break;
+            case 2:
+                $config=$arguments[0];
+                $shared=$arguments[1];
+                break;
+            default:
+                return '错误：第一个参数为配置项数组，第二个为可选参数，是否为单例模式';
         }
 
-    }
-    //调用插件的某个方法
-    public function __call($method,$params=null){
-        if ( !method_exists( $this->link, $method ) ) {
-            die('方法不存在,请创建');
+
+        $class_name='\qcth\laravel_alipay\plug\\'.ucfirst(trim($plug_name));
+
+
+        if(empty($this->link[$class_name])){
+
+            return $this->link[$class_name]=new $class_name(...$arguments);
         }
-        return call_user_func_array( [ $this->link, $method ], $params );
+
+        if(!$shared){
+
+            return new $class_name(...$arguments);
+        }
+
+        return $this->link[$class_name];
     }
 }
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace qcth\laravel_alipay;
+namespace qcth\laravel_alipay\facade;
 
 use Illuminate\Support\Facades\Facade;
 
-class WechatFacade extends  Facade
+class Alipay extends  Facade
 {
     protected static  function  getFacadeAccessor()
     {

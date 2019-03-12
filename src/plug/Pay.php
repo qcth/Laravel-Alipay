@@ -22,13 +22,18 @@ class Pay{
 
     public $alipay_sdk_version='alipay-sdk-php-20161101'; //sdk版本号
 
+    //初始化$config配置项
+    public function __construct($config=null){
+        //配置项，赋值全局属性
+        $this->config=$config;
+    }
 
     /**
      * @param $order_info 订单信息
      * @param string $method  支付宝下单，只支持POST或GET
      * @return string 如果是get则返出 url,如果是post返出post表单，其它则反出错误
      */
-    public function go($order_info,$config=null,$type='pc',$method='GET'){
+    public function go($order_info=null,$type='pc',$method='GET'){
 
         //订单信息数组不能为空
         if(empty($order_info)){
@@ -37,12 +42,10 @@ class Pay{
         //全作全局属性，方便其它方法，获取订单信息
         $this->order_info=$order_info;   //订单信息，赋值给全局属性
 
-        //配置项不能为空
-        if(empty($config)){
-            return '支付宝配置数组不能为空';
+        if(empty($this->config)){
+           return '支付宝配置数组不能为空';
         }
-        //配置项，赋值全局属性
-        $this->config=$config;
+
 
         //分区是PC支付，还是手机支付
         $this->type=strtoupper(trim($type));
