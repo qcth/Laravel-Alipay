@@ -16,10 +16,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "qcth\\laravel_alipay\\AlipayServiceProvider"
+                "qcth\\laravel_alipay\\src\\AlipayServiceProvider"
             ],
             "aliases": {
-                "Alipay": "qcth\\laravel_alipay\\AlipayFacade"
+                "Alipay": "qcth\\laravel_alipay\\src\\AlipayFacade"
             }
         }
     }
