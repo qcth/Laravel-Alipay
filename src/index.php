@@ -20,15 +20,13 @@ class Index{
         //参数个数
         switch (count($arguments)){
             case 1:
-                $config=$arguments[0];
                 $shared=true;
                 break;
             case 2:
-                $config=$arguments[0];
                 $shared=$arguments[1];
                 break;
             default:
-                return '错误：第一个参数为配置项数组，第二个为可选参数，是否为单例模式';
+                return '错误：第一个参数为配置项数组，第二个为可选参数，默认为单例模式，如果不需要单例模式，请传false';
         }
 
 

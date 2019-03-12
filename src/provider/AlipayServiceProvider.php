@@ -3,6 +3,7 @@
 namespace qcth\laravel_alipay\provider;
 
 use Illuminate\Support\ServiceProvider;
+use qcth\laravel_alipay\Index;
 
 class AlipayServiceProvider extends ServiceProvider
 {

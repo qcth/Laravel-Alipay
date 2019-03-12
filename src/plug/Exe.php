@@ -30,7 +30,7 @@ class Exe{
     }
 
     //查询
-    public function query($order_info){
+    public function query($order_info=null){
         //sdk赋值
         $this->build_params_method='alipay.trade.query';
         $this->sdk_response='alipay_trade_query_response';
@@ -38,15 +38,15 @@ class Exe{
         return $this->common($order_info);
     }
     //退款
-    public function refund($order_info){
+    public function refund($order_info=null){
         //sdk赋值
         $this->build_params_method='alipay.trade.refund';
         $this->sdk_response='alipay_trade_refund_response';
 
-        return $this->common($order_info);
+        return $this->common($order_info=null);
     }
     //退款查询
-    public function refund_query($order_info){
+    public function refund_query($order_info=null){
         //sdk赋值
         $this->build_params_method='alipay.trade.fastpay.refund.query';
         $this->sdk_response='alipay_trade_fastpay_refund_query_response';
@@ -54,7 +54,7 @@ class Exe{
         return $this->common($order_info);
     }
     //关闭交易
-    public function close($order_info){
+    public function close($order_info=null){
         //sdk赋值
         $this->build_params_method='alipay.trade.close';
         $this->sdk_response='alipay_trade_close_response';
