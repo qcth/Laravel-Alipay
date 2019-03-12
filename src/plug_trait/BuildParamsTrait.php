@@ -1,6 +1,6 @@
 <?php
 
-namespace qcth\alipay\plug_trait;
+namespace qcth\laravel_alipay\plug_trait;
 
 trait BuildParamsTrait{
 

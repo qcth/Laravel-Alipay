@@ -1,6 +1,6 @@
 <?php
 
-namespace qcth\alipay;
+namespace qcth\laravel_alipay;
 
 use Illuminate\Support\ServiceProvider;
 

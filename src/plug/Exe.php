@@ -1,11 +1,11 @@
 <?php
 
-namespace qcth\alipay\plug;
+namespace qcth\laravel_alipay\plug;
 
-use qcth\alipay\plug_trait\ArrayToStringTrait;
-use qcth\alipay\plug_trait\BuildParamsTrait;
-use qcth\alipay\plug_trait\CurlTrait;
-use qcth\alipay\plug_trait\SignVerifyTrait;
+use qcth\laravel_alipay\plug_trait\ArrayToStringTrait;
+use qcth\laravel_alipay\plug_trait\BuildParamsTrait;
+use qcth\laravel_alipay\plug_trait\CurlTrait;
+use qcth\laravel_alipay\plug_trait\SignVerifyTrait;
 
 //支付宝交易查询
 class Exe{

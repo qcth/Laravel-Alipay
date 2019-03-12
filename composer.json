@@ -1,5 +1,5 @@
 {
-    "name": "qcth/thinkphp_alipay",
+    "name": "qcth/Laravel-Alipay",
     "description": "this is alipay",
     "authors": [
         {
@@ -16,10 +16,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "qcth\\alipay\\AlipayServiceProvider"
+                "qcth\\laravel_alipay\\AlipayServiceProvider"
             ],
             "aliases": {
-                "Alipay": "qcth\\alipay\\AlipayFacade"
+                "Alipay": "qcth\\laravel_alipay\\AlipayFacade"
             }
         }
     }

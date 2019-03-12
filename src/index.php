@@ -1,6 +1,6 @@
 <?php
 
-namespace qcth\alipay;
+namespace qcth\laravel_alipay;
 
 /**
  * 微信插件统一入口
@@ -15,7 +15,8 @@ class Index{
     ///$construct 是 实例化的类的构造参数,可以不传
     public function __construct($plug_name,$construct=null){
 
-        $class_name='\qcth\alipay\plug\\'.ucfirst($plug_name);
+        $class_name='\qcth\laravel_alipay\plug\\'.ucfirst($plug_name);
+
         if(!$this->link instanceof $class_name){
             $this->link=new $class_name($construct);
         }

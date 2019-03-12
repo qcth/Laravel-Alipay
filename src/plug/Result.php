@@ -1,9 +1,9 @@
 <?php
 
-namespace qcth\alipay\plug;
+namespace qcth\laravel_alipay\plug;
 
 //同步通知或异步通知
-use qcth\alipay\plug_trait\ResultCheckTrait;
+use qcth\laravel_alipay\plug_trait\ResultCheckTrait;
 
 class AlipayResult{
     use ResultCheckTrait;

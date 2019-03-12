@@ -1,9 +1,9 @@
 <?php
 
-namespace qcth\alipay\plug;
+namespace qcth\laravel_alipay\plug;
 
-use qcth\alipay\plug_trait\ArrayToStringTrait;
-use qcth\alipay\plug_trait\BuildParamsTrait;
+use qcth\laravel_alipay\plug_trait\ArrayToStringTrait;
+use qcth\laravel_alipay\plug_trait\BuildParamsTrait;
 
 /**
  * Class Alipay
