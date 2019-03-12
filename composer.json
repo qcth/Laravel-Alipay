@@ -10,16 +10,16 @@
     "require": {},
     "autoload": {
         "psr-4":{
-            "qcth\\alipay\\":"src/"
+            "qcth\\laravel_alipay\\":"src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "qcth\\laravel_alipay\\src\\AlipayServiceProvider"
+                "qcth\\laravel_alipay\\AlipayServiceProvider"
             ],
             "aliases": {
-                "Alipay": "qcth\\laravel_alipay\\src\\AlipayFacade"
+                "Alipay": "qcth\\laravel_alipay\\AlipayFacade"
             }
         }
     }
